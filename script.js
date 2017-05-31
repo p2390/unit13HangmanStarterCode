@@ -4,9 +4,9 @@
 // Set wrongGuesses equal to an empty array
 // Set images to an array contataining all of your images links as strings (in order)
 var secretWord = null;
-
-
-
+var correctGuesses = [ ];
+var wrongGuesses = [ ];
+var images = ["images/Hangman-0.png","images/Hangman-1.png", "images/Hangman-2.png","images/Hangman-3.png","images/Hangman-4.png", "images/Hangman-5.png", "images/Hangman-6.png"];
 
 
 
@@ -17,8 +17,8 @@ var secretWord = null;
 // call the drawHangman() function
 function prepareGame() {
   secretWord = ['J','A','V','A','S','C','R', 'I', 'P', 'T'];
-
-    
+drawWord( );
+drawHangman( );    
   
 }
 
@@ -99,10 +99,9 @@ function judgeGuess(letter) {
 //    if correctGuesses includes letter append the letter
 //    othewise append and underscore
 function drawWord() {
-  
-  
-  
-  
+  secretWord.forEach(function(name) {
+         $("#word").append("_");
+    });
   
   
 }
@@ -134,6 +133,5 @@ function onKeyDown(event) {
 // Initialize a jQuery keydown event handler 
 //       (Keydown function should take onKeyDown function as an argument)
 $(document).ready(function() {
- 
-  
+  prepareGame();
 });
